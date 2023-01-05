@@ -15,8 +15,11 @@ if [ $? -ne 0 ]; then
   pip3 install virtualenv
 fi
 # Get the file path of the bash script
-script_path=$(dirname "$0")
-
+#script_path=$(dirname "$0")
+#script_path="${BASH_SOURCE[0]}"
+cd "$(dirname "$0")"
+script_path=$(pwd)
+echo $script_path
 # Check if virtual environment already exists
 if [ -d "$script_path/NLP_APP_VNV" ]; then
   # Virtual environment exists, print directory
