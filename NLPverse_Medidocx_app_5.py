@@ -67,7 +67,8 @@ class Handler(FileSystemEventHandler):
             print("Running Auto Inference")
             if self.last_file_time is None or (time.time() - self.last_file_time) > self.delay*60:
                 self.last_file_time = time.time()
-                subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_outputs), str(num_v), Marker_input])
+                #subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_outputs), str(num_v), Marker_input])
+                subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_v), Marker_input])
 
 if selected_tab == "Auto Inference":
     st.markdown("## Auto Inference")
@@ -117,7 +118,8 @@ if selected_tab == "Inference":
     num_v=num_v-1
     if st.button("Process"): 
         #subprocess.run(["python", os.path.join(full_path,"inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_outputs), str(num_v), Marker_input])
-        subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_outputs), str(num_v), Marker_input])
+        #subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_outputs), str(num_v), Marker_input])
+        subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_modelS, str(num_v), Marker_input])
 
 # Display the Train tab
 if selected_tab == "Train":
