@@ -18,6 +18,10 @@ import docx
 import re
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from transformers import AutoTokenizer, T5ForConditionalGeneration
+import nltk
+from nltk.corpus import stopwords
+nltk.download('stopwords')
+stop_words = set(stopwords.words("english"))
 import pdb
 
 
@@ -25,9 +29,9 @@ dir_in = sys.argv[1]
 dir_out = sys.argv[2]
 dir_train = sys.argv[3]
 dir_model = sys.argv[4]
-num_outputs = int(sys.argv[5])
-num_v = int(sys.argv[6])
-Marker_input = sys.argv[7]
+#num_outputs = int(sys.argv[5])
+num_v = int(sys.argv[5])
+Marker_input = sys.argv[6]
 
 Read_from_parent_dir=dir_in
 Save_to_parent_dir=dir_out
@@ -35,9 +39,6 @@ Move_to_train=dir_train
 Load_from_models_dir=dir_model
 Model_Selected=num_v# from front end
 Marker_input=Marker_input  # *** Connect this to input by user
-
-
-
 
 
 def paraphrase_med(text,max_length):
@@ -50,7 +51,7 @@ def paraphrase_med(text,max_length):
 
 def remove_non_english_characters(raw_input, identifier):
   # Keep the characters in the identifier and remove all other non-english characters
-  if identifier == -1:
+  if identifier != -1 or identifier!="" or  identifier!=" ":
     clean_input = re.sub(rf'[^{identifier}\x00-\x7F]+','', raw_input).strip()
     clean_input = re.sub(r'\s+', ' ', clean_input)
 
@@ -69,7 +70,7 @@ def correct_sentence_spelling(sentence):
 import re
 def clean_para_text(text,marker,paraphrase_med,max_length): 
   indices = [m.start() for m in re.finditer(marker, text)]
-  if len(indices)==0 or Marker_input=="":
+  if len(indices)==0 or Marker_input=="" or  Marker_input==" ":
     return run_inference_on_text(text, paraphrase_med,max_length)
   if not len(indices)%2==0:
     raise Exception(f"Unbalanced markers not allowed")
@@ -110,7 +111,7 @@ def count_words(text):
     for word in words:
         count += 1
     return count  
-
+#docx2txt.process("/Users/mayssamnaji/Desktop/train/input/Gonzales, Arthur ROR.docx")
 def run_inference_on_text(text, InferencFunc,max_length):
   P_a=0
   out=[]
@@ -222,9 +223,12 @@ def check_header(text):
 
 def find_names(text):
   text = re.sub(r'[\d,._-]', '', text)
-  text.split()
+  #text.split()
   out=text.split()
+  out = [word.lower() for word in out]
   return out[0:2]
+def is_stop_word(word):
+    return word in stop_words
 
 """## Auto Run"""
 # Get a list of all subdirectories in the directory
@@ -316,6 +320,7 @@ for document_number in  range(total_number_docs):
   font.bold = True
   para.alignment = WD_ALIGN_PARAGRAPH.CENTER
   names=find_names(file_name)
+  print(names)
   for p in range(len(out_type)):
     if out_type[p]=="text":
 
@@ -343,7 +348,8 @@ for document_number in  range(total_number_docs):
                 font.size = Pt(11)
                 font.name = 'Courier New'
                 font.highlight_color = WD_COLOR_INDEX.YELLOW  # set highlight color to green
-            elif not word in filtered_original_words:
+            elif not word in filtered_original_words and not word in stop_words:
+
                 run = para.add_run(word_out)
                 font = run.font
                 font.size = Pt(11)

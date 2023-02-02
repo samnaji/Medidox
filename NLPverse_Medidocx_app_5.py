@@ -23,8 +23,8 @@ st.sidebar.title("Choose a task:")
 #python_path = subprocess.run(['which', 'python'], capture_output=True).stdout.strip()
 python_path = sys.executable
 # Add a tab selector to the sidebar
-selected_tab = st.sidebar.radio("", ["Auto Inference","Inference", "Train", "Text Cleaning"])
-#selected_tab = st.sidebar.radio("", ["Inference", "Train"])
+#selected_tab = st.sidebar.radio("", ["Auto Inference","Inference", "Text Cleaning","Auto Text Cleaning"])
+selected_tab = st.sidebar.radio("", ["Auto Inference","Inference", "Train"])
 
 #scripts relative location 
 script_path = os.path.realpath(__file__)
@@ -81,18 +81,14 @@ if selected_tab == "Auto Inference":
     delay = st.number_input("Number of minutes to wait (default: 1):", value=1)
     num_v = st.number_input("The version of the model (most recent: 1; 2 is the second most recent):", value=1)
     num_v=num_v-1
-    dir_in=r"/Users/mayssamnaji/Desktop/train/input"
-    dir_out=r"/Users/mayssamnaji/Desktop/train/output"
-    dir_model= r"/Users/mayssamnaji/Desktop/train/model"
-    dir_train=r"/Users/mayssamnaji/Desktop/train/train"
+    # dir_in=r"/Users/mayssamnaji/Desktop/train/input"
+    # dir_out=r"/Users/mayssamnaji/Desktop/train/output"
+    # dir_model= r"/Users/mayssamnaji/Desktop/train/model"
+    # dir_train=r"/Users/mayssamnaji/Desktop/train/train"
 
     if st.button("Auto Inference"):
         w = Watcher(dir_in,delay)
         w.run()
-
-
-
-
 
 
 if selected_tab == "Inference":
@@ -105,10 +101,10 @@ if selected_tab == "Inference":
     #num_outputs = st.number_input("Number of outputs (default: 1):", value=1)
     num_v = st.number_input("The version of the model (most recent: 1; 2 is the second most recent):", value=1)
     
-    dir_in=r"/Users/mayssamnaji/Desktop/train/input"
-    dir_out=r"/Users/mayssamnaji/Desktop/train/output"
-    dir_model= r"/Users/mayssamnaji/Desktop/train/model"
-    dir_train= r"/Users/mayssamnaji/Desktop/train/train"
+    # dir_in=r"/Users/mayssamnaji/Desktop/train/input"
+    # dir_out=r"/Users/mayssamnaji/Desktop/train/output"
+    # dir_model= r"/Users/mayssamnaji/Desktop/train/model"
+    # dir_train= r"/Users/mayssamnaji/Desktop/train/train"
 
     # dir_in=r"C:\Users\mayss\OneDrive\Desktop\train\input"
     # dir_out=r"C:\Users\mayss\OneDrive\Desktop\train\output"
@@ -119,7 +115,7 @@ if selected_tab == "Inference":
     if st.button("Process"): 
         #subprocess.run(["python", os.path.join(full_path,"inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_outputs), str(num_v), Marker_input])
         #subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_outputs), str(num_v), Marker_input])
-        subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_modelS, str(num_v), Marker_input])
+        subprocess.run([python_path, os.path.join(full_path,"scripts","inference_fulltext_v5.py"), dir_in, dir_out, dir_train, dir_model, str(num_v), Marker_input])
 
 # Display the Train tab
 if selected_tab == "Train":
@@ -134,8 +130,6 @@ if selected_tab == "Train":
     # dir_in  = st.file_uploader("Select a the input folder", type="directory")
     # dir_out = st.file_uploader("Select a the output folder", type="directory")
     # dir_model = st.file_uploader("Select the folder that has the models", type="directory")
-
-
     #dir_in=r"/Users/mayssamnaji/Desktop/train/input"
     #dir_out=r"/Users/mayssamnaji/Desktop/train/output"
     #dir_model= r"/Users/mayssamnaji/Desktop/train/model"
@@ -152,9 +146,9 @@ if selected_tab == "Text Cleaning":
     dir_out = st.text_input("Select a the output folder")
     Archive=st.text_input("Select a the folder to move completed files to")
 
-    dir_in=r"/Users/mayssamnaji/Desktop/train/input"
-    dir_out=r"/Users/mayssamnaji/Desktop/train/output"
-    Archive =r"/Users/mayssamnaji/Desktop/train/train"
+    # dir_in=r"/Users/mayssamnaji/Desktop/train/input"
+    # dir_out=r"/Users/mayssamnaji/Desktop/train/output"
+    # Archive =r"/Users/mayssamnaji/Desktop/train/train"
 
     if st.button("Clean"):
         subprocess.run([python_path, os.path.join(full_path,"scripts","clean_fulltext.py"), dir_in, dir_out,Archive])
