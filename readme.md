@@ -12,3 +12,22 @@ We designed this app to help you easily clean and improve the quality of your ra
 - Auto Inference: Runs inference very time there is a new file added to the folder  
 - Train: Trains the model to learn your tone of writing
 
+## More On Inference Script
+This script implements several functionalities such as paraphrasing, spelling correction, and text cleaning, specifically removing non-English characters. The script uses several libraries such as `sys`, `os`, `docx`, `re`, `transformers`, `nltk`, `textblob`, and `shutil`.
+
+The script takes several command line arguments including the input directory, output directory, training directory, model directory, number of models, and a marker input.
+
+The `paraphrase_med` function takes in a text and a maximum length, and returns a paraphrased text using the T5 model. 
+
+The `remove_non_english_characters` function takes in a raw input and an identifier and returns the input after removing all non-English characters, except those in the identifier.
+
+The `correct_sentence_spelling` function takes in a sentence and returns the corrected spelling using TextBlob library.
+
+The `clean_para_text` function takes in a text, a marker, a `paraphrase_med` function and a maximum length, and returns the cleaned text, by removing non-English characters and correcting spelling errors.
+
+The script uses the `glob` library to find all `.docx` files in the input directory and processes them one by one, saving the cleaned text to the output directory.
+
+The script also moves the processed `.docx` files to the training directory, so that the models can be retrained with the new data.
+
+
+
