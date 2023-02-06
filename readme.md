@@ -28,7 +28,10 @@ Note: The app requires python do be installed and in the directory (any python v
 
 ## More On Inference Script
 
-<img src="./images/inference.png" width="50%">
+<p align="center">
+  <img src="./images/inference.png" width="50%">
+</p>
+
 This script implements several functionalities such as paraphrasing, spelling correction, and text cleaning, specifically removing non-English characters. The script uses several libraries such as `sys`, `os`, `docx`, `re`, `transformers`, `nltk`, `textblob`, and `shutil`.
 
 The script takes several command line arguments including the input directory, output directory, training directory, model directory, number of models, and a marker input.
@@ -47,7 +50,10 @@ The script also moves the processed `.docx` files to the training directory, so 
 
 ## More On Auto Inference Script
 
-<img src="./images/auto.png" width="50%">
+<p align="center">
+  <img src="./images/auto.png" width="50%">
+</p>
+
 The auto inference feature of this code allows you to continuously monitor a directory for new .docx or .doc files and automatically process them with a pre-trained NLP model. Here's a brief overview of how it works:
 
 1. You specify the directory to be monitored for new files.
