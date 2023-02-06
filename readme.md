@@ -67,6 +67,7 @@ The auto inference feature of this code allows you to continuously monitor a dir
 <p align="center">
   <img src="./images/train.png" width="50%">
 </p>
+
 The training script is used to train the T5 model for text generation. The script accepts the following parameters as inputs:
 1. `dir_in`: The directory that contains the input files.
 2. `dir_out`: The directory that contains the target files.
