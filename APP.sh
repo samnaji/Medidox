@@ -41,4 +41,5 @@ app_path="${script_path}/NLPverse_Medidocx_app_5.py"
 pip install -r "$req_path"
 
 # Run Streamlit app
+clear
 streamlit run  "$app_path"
