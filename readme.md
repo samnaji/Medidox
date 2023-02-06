@@ -1,4 +1,4 @@
-# NLP tool for Microsoft Word Documents Processing 
+# Python NLP Tool for Microsoft Word Documents Processing 
 
 We designed this app to help you easily clean and improve the quality of your raw docx documents. Upload the folder containing all your files and where you want to store the results. Our advanced processing algorithms will remove non-English characters, fix grammar mistakes, and paraphrase the content to ensure that the final version is clear, concise, and easy to read. The resulting document will retain the same context and meaning as the original but with a polished, professional finish.
 
