@@ -65,6 +65,7 @@ The training script is used to train the T5 model for text generation. The scrip
 2. `dir_out`: The directory that contains the target files.
 3. `dir_model`: The directory where the trained models will be saved.
 4. `num_v`: The version of the model that you want to train.
+<img src="./images/train.png" width="50%">
 
 The script performs the following steps:
 1. Loads the input and target files from the specified directories.
