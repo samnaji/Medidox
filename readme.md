@@ -1,6 +1,7 @@
-# NLP tool for Medical Documents Processing 
+# NLP tool for Microsoft Word Documents Processing 
 
 We designed this app to help you easily clean and improve the quality of your raw docx documents. Upload the folder containing all your files and where you want to store the results. Our advanced processing algorithms will remove non-English characters, fix grammar mistakes, and paraphrase the content to ensure that the final version is clear, concise, and easy to read. The resulting document will retain the same context and meaning as the original but with a polished, professional finish.
+The app is a `python` app and runs on `Streamlit` for front-end, it comes with a `sh` and `bat` files so it will run in one click for Windows, Mac and Linux. 
 
 ## Things to keep in mind
 - Ensure that the documents you upload are in .docx or .doc format
@@ -56,8 +57,9 @@ The auto inference feature of this code allows you to continuously monitor a dir
 
 ## More On Training Script
 
-<img src="./images/train.png" width="50%">
-
+<p align="center">
+  <img src="./images/train.png" width="50%">
+</p>
 The training script is used to train the T5 model for text generation. The script accepts the following parameters as inputs:
 1. `dir_in`: The directory that contains the input files.
 2. `dir_out`: The directory that contains the target files.
