@@ -1,4 +1,4 @@
-# NLPverse for Medidocx
+# NLP toolfor Medical Documents Processing 
 
 We designed this app to help you easily clean and improve the quality of your raw docx documents. Upload the folder containing all your files and where you want to store the results. Our advanced processing algorithms will remove non-English characters, fix grammar mistakes, and paraphrase the content to ensure that the final version is clear, concise, and easy to read. The resulting document will retain the same context and meaning as the original but with a polished, professional finish.
 
@@ -54,7 +54,7 @@ The auto inference feature of this code allows you to continuously monitor a dir
 1. You specify the directory to be monitored for new files.
 2. When a new file is detected in the directory, the code runs the inference process with the selected NLP model.
 3. The resulting file is saved in the specified output directory.
-4. The app detects everytime a new file is added and waits for few minutes specify by user
+4. The app detects everytime a new file is added and waits for few minutes, number of minutes is specified by user
 
 ## More On Training Script
 
