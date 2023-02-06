@@ -27,8 +27,7 @@ Note: The app requires python do be installed and in the directory (any python v
 
 ## More On Inference Script
 
-![Inference Page](./images/inference.png)
-
+<img src="./images/inference.png" width="50%">
 This script implements several functionalities such as paraphrasing, spelling correction, and text cleaning, specifically removing non-English characters. The script uses several libraries such as `sys`, `os`, `docx`, `re`, `transformers`, `nltk`, `textblob`, and `shutil`.
 
 The script takes several command line arguments including the input directory, output directory, training directory, model directory, number of models, and a marker input.
@@ -47,8 +46,7 @@ The script also moves the processed `.docx` files to the training directory, so 
 
 ## More On Auto Inference Script
 
-![Inference Page](./images/auto.png)
-
+<img src="./images/auto.png" width="50%">
 The auto inference feature of this code allows you to continuously monitor a directory for new .docx or .doc files and automatically process them with a pre-trained NLP model. Here's a brief overview of how it works:
 
 1. You specify the directory to be monitored for new files.
@@ -58,14 +56,14 @@ The auto inference feature of this code allows you to continuously monitor a dir
 
 ## More On Training Script
 
-![Inference Page](./images/train.png)
+<img src="./images/train.png" width="50%">
 
 The training script is used to train the T5 model for text generation. The script accepts the following parameters as inputs:
 1. `dir_in`: The directory that contains the input files.
 2. `dir_out`: The directory that contains the target files.
 3. `dir_model`: The directory where the trained models will be saved.
 4. `num_v`: The version of the model that you want to train.
-<img src="./images/train.png" width="50%">
+
 
 The script performs the following steps:
 1. Loads the input and target files from the specified directories.
