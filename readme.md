@@ -7,10 +7,23 @@ We designed this app to help you easily clean and improve the quality of your ra
 - The name of the file should start with the patient name and surname examples: name_surname...docx ; name, surname...docx ; or name-surname...docx
 - While reviewing resulted documents to add to the training pipeline, please do not move paragraphs or add any line breaks
 
+## Usage
+
+![Header Image](./images/header.png)
+
+To launch the app, follow the steps below:
+
+- Mac or Linux: Click on `APP.sh`
+- Windows: Click on `APP.bat`
+
+The app will launch with a user interface in your browser. The results and progress of the app will be printed in the command terminal.
+
+Note: The app requires python do be installed and in the directory (any python version under 3.10). Make sure python is installed and visible, all other dependencies will be installed while launching the app.
+
 ## Tasks
-- Inference: Cleans and paraphrases the docs presented in the directory. It also highlights the patient names and highlights any new words not found in the original document
-- Auto Inference: Runs inference very time there is a new file added to the folder  
-- Train: Trains the model to learn your tone of writing
+- `Inference`: Cleans and paraphrases the docs presented in the directory. It also highlights the patient names and highlights any new words not found in the original document
+- `Auto Inference`: Runs inference very time there is a new file added to the folder  
+- `Train`: Trains the model to learn your tone of writing
 
 ## More On Inference Script
 This script implements several functionalities such as paraphrasing, spelling correction, and text cleaning, specifically removing non-English characters. The script uses several libraries such as `sys`, `os`, `docx`, `re`, `transformers`, `nltk`, `textblob`, and `shutil`.
