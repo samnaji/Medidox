@@ -1,4 +1,4 @@
-# NLP toolfor Medical Documents Processing 
+# NLP tool for Medical Documents Processing 
 
 We designed this app to help you easily clean and improve the quality of your raw docx documents. Upload the folder containing all your files and where you want to store the results. Our advanced processing algorithms will remove non-English characters, fix grammar mistakes, and paraphrase the content to ensure that the final version is clear, concise, and easy to read. The resulting document will retain the same context and meaning as the original but with a polished, professional finish.
 
@@ -59,3 +59,16 @@ The auto inference feature of this code allows you to continuously monitor a dir
 ## More On Training Script
 
 ![Inference Page](./images/train.png)
+
+The training script is used to train the T5 model for text generation. The script accepts the following parameters as inputs:
+1. `dir_in`: The directory that contains the input files.
+2. `dir_out`: The directory that contains the target files.
+3. `dir_model`: The directory where the trained models will be saved.
+4. `num_v`: The version of the model that you want to train.
+
+The script performs the following steps:
+1. Loads the input and target files from the specified directories.
+2. Processes the input files to extract relevant information.
+3. Splits the input and target data into training and validation sets.
+4. Trains the T5 model using the training data.
+5. Saves the trained model to the specified directory.
